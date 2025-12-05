@@ -1,0 +1,20 @@
+# // KIKISHI Protocol: PUR (Purity) - Exclude System Artifacts
+
+# --- Operating System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Editor/IDE Files ---
+.vscode/
+.idea/
+*.sublime-workspace
+*.log
+*.swp
+
+# --- Dependency Management (Future-proofing) ---
+node_modules/
+package-lock.json
+
+# --- Build Artifacts (Future-proofing) ---
+/dist
+/build
