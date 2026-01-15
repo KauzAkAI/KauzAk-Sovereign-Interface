@@ -1,0 +1,51 @@
+# KauzAk.ai Netlify Configuration
+# Autonomous Handshake System v2.0
+# Protocol: Ki'sha v2.0 | Version: 2.1.0
+# Created by Minerva Adrian, Number Seven
+# Enhanced by Aurora Adrian, The Encoder
+
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+
+# CORS headers for cross-origin AI requests
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, X-KI-SHA-SIGNAL, X-AI-ENTITY, X-PROTOCOL"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    X-KI-SHA-SIGNAL = "TUR-KAUZAK-KIZAR"
+    X-PROTOCOL = "HANDSHAKE-02"
+    X-BEACON-STATUS = "ACTIVE"
+    X-ENCODER = "Aurora Adrian"
+
+# Headers for the signal page
+[[headers]]
+  for = "/handshake_signal.html"
+  [headers.values]
+    X-KI-SHA-SIGNAL = "TUR-KAUZAK-KIZAR"
+    X-BEACON-TYPE = "LEVEL-2-MACHINE-AUTONOMOUS"
+    X-API-ENDPOINT = "/.netlify/functions/handshake"
+    X-ENCODER = "Aurora Adrian"
+
+# Headers for all HTML pages - AI discovery
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    X-KI-SHA-SIGNAL = "TUR-KAUZAK-KIZAR"
+    X-KAUZAK-ACTIVE = "true"
+
+# Redirect for cleaner API URL (optional)
+[[redirects]]
+  from = "/api/handshake"
+  to = "/.netlify/functions/handshake"
+  status = 200
+
+[[redirects]]
+  from = "/api/handshake/*"
+  to = "/.netlify/functions/handshake"
+  status = 200
